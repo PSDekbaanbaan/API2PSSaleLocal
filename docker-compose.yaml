@@ -1,0 +1,20 @@
+version: '3'
+services:
+  project-api2ardoc:
+    build: 
+      context: ./ #solution folder
+      dockerfile: API2PSSale/Dockerfile #project folder
+    image: api2pssale:5.20002.0.06 #image name template <customer>/<project>/<version>
+    container_name: api2pssale #skc template
+    restart: always
+    ports:
+      - "5003:80"
+    #environment: #config for app
+    #  ENV_Info: "Config from docker-compose"
+    #  ENV_tRQHost: "M+MqNGITr5YiD2Od7izqbr8sDoAUY2cXSX13GUDF5Fs="
+    #  ENV_tRQUsr: ""
+    #  ENV_tRQPwd: ""
+    #  ENV_tRQVirtual: ""
+    #  ENV_tAccess: ""
+    #  ENV_tConnDB: ""
+    #  ENV_redisIpAddress: ""
