@@ -30,12 +30,28 @@ pipeline
                 }
             }
         }
-    }
-    stage('Build Image')
-    {
-        steps
+        stage('Build Image')
         {
-            echo 'Building...'
+            steps
+            {
+                echo 'Building...'
+                script
+                {
+                    dockerImage = docker.build(imagename)
+                }
+            }
+        }
+        stage('Run Container For Test')
+        {
+            steps
+            {
+                echo 'Run Container For Test...'
+                script
+                {
+                    bat 'docker run -p 8899:80 --name api2PSSale api2PSSale:5.22003 .'
+                }
+            }
+            
         }
     }
 }
