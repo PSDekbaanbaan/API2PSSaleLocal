@@ -38,7 +38,7 @@ pipeline
             echo 'Building...'
             script
             {
-                dockerImage = docker.build imagename
+                dockerImage = docker.build(imagename)
             }
         }
     }
