@@ -25,25 +25,5 @@ pipeline
                 }
             }
         }
-
-        stage('Dockerfile')
-        {
-            steps
-            {
-                echo "========Docker Building========"
-                sh 'docker build -t api2pssale:5.20002.0.03 .'
-            }
-            post
-            {
-                success
-                {
-                    echo "========Dockerfile Build successfully========"
-                }
-                failure
-                {
-                    echo "========Dockerfile Build failed========"
-                }
-            }
-        }
     }
 }
