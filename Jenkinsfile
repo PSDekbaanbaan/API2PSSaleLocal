@@ -4,6 +4,10 @@ def githubBranch = 'main'
 pipeline
 {
     agent any
+    environment
+    {
+        imagename = "api2PSSale:5.22003"
+    }
     stages{
         stage("Git Clone")
         {
@@ -23,6 +27,17 @@ pipeline
                 {
                     echo "========Cloning Git failed========"
                 }
+            }
+        }
+    }
+    stage('Build Image')
+    {
+        steps
+        {
+            echo 'Building...'
+            script
+            {
+                dockerImage = docker.build imagename
             }
         }
     }
