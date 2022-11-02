@@ -7,6 +7,7 @@ pipeline
     environment
     {
         imagename = "api2PSSale:5.22003"
+        dockerImage = ''
     }
     stages{
         stage("Git Clone")
@@ -40,5 +41,17 @@ pipeline
                 dockerImage = docker.build imagename
             }
         }
+    }
+    stage('Run Container For Test')
+    {
+        steps
+        {
+            echo 'Run Container For Test...'
+            script
+            {
+                bat 'docker run -p 8899:80 --name api2PSSale api2PSSale:5.22003 .'
+            }
+        }
+        
     }
 }
