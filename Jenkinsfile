@@ -1,3 +1,5 @@
+def githubRepo = 'https://github.com/PSDekbaanbaan/API2PSSaleLocal.git'
+def githubBranch = 'main'
 
 pipeline
 {
@@ -8,6 +10,8 @@ pipeline
             steps
             {
                 echo "========Cloning Git========"
+                git url: githubRepo,
+                    branch: githubBranch
             }
             post
             {
@@ -27,6 +31,7 @@ pipeline
             steps
             {
                 echo "========Docker Building========"
+                sh 'docker build -t api2pssale:5.20002.0.03 .'
             }
             post
             {
