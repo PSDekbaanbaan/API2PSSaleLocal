@@ -6,7 +6,7 @@ pipeline
     agent any
     environment
     {
-        imagename = "api2PSSale:5.22003"
+        imagename = "API2PSSaleLocal:5.22003"
         dockerImage = ''
     }
     stages{
