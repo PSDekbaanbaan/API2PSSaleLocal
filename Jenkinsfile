@@ -48,7 +48,7 @@ pipeline
                 echo 'Remove Container...'
                 script
                 {
-                    bat 'docker container prune --force --filter "name=api2pssale" '
+                    bat 'docker rm -f api2pssale" '
                 }
             }
         }
