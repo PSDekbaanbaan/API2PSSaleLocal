@@ -41,11 +41,39 @@ pipeline
                 }
             }
         }
-        stage('Run Container For Test')
+        stage('Stop Container')
         {
             steps
             {
-                echo 'Run Container For Test...'
+                echo 'Stop Container For Sit...'
+                script
+                {
+                        bat 'docker stop api2pssale'
+
+                }
+            }
+        }
+        stage('Remove Container')
+        {
+            steps
+            {
+                echo 'Stop Container For Sit...'
+                script
+                {
+                        bat 'docker rm api2pssale'
+
+                }
+            }
+        }
+        stage('Run Container')
+        {
+            steps
+            {
+                echo 'Run Container...'
+                script
+                {
+                    bat 'docker run -p 8999:80 --name api2pssale api2pssale:5.22003 '
+                }
             }
         }
     }
