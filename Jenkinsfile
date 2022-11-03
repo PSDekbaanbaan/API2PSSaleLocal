@@ -41,6 +41,17 @@ pipeline
                 }
             }
         }
+        stage('Remove Container')
+        {
+            steps
+            {
+                echo 'Remove Container...'
+                script
+                {
+                    bat 'docker container prune --force --filter "name=api2pssale" '
+                }
+            }
+        }
         stage('Run Container')
         {
             steps
