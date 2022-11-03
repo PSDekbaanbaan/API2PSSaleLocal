@@ -48,7 +48,7 @@ pipeline
                 echo 'Run Container...'
                 script
                 {
-                    bat 'docker run -p 8999:80 --name api2pssale api2pssale:5.22003 '
+                    bat 'docker run -d -p 8999:80 --name api2pssale api2pssale:5.22003 '
                 }
             }
         }
